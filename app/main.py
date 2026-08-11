@@ -1,15 +1,20 @@
 from fastapi import FastAPI
 
+from app.api.query import router as query_router
+
+
 app = FastAPI(
-    title="NL2SQL Supply Chain API",
-    description="AI-powered Natural Language to SQL Analytics API",
+    title="Intelligent Natural Language to SQL API",
+    description="AI-powered supply chain analytics using natural language queries.",
     version="1.0.0"
 )
 
+
+app.include_router(query_router)
+
+
 @app.get("/")
-def home():
+def root():
     return {
-        "project": "NL2SQL Supply Chain API",
-        "status": "Running Successfully",
-        "version": "1.0.0"
+        "message": "NL2SQL Supply Chain API is running"
     }
