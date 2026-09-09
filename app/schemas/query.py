@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 
 
 class QueryRequest(BaseModel):
+
     question: str = Field(
         ...,
         min_length=3,
@@ -11,6 +12,8 @@ class QueryRequest(BaseModel):
 
 
 class QueryResponse(BaseModel):
+
     question: str
     sql: str
     results: list
+    answer: str
